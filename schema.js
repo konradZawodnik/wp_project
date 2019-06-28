@@ -8,8 +8,9 @@ const {
 } = require('graphql');
 
 const NewsType = new GraphQLObjectType({
-    name: 'Rocket',
+    name: 'News',
     fields: () => ({
+
       id: { type: GraphQLString },
       url: { type: GraphQLString },
       title: { type: GraphQLString }
@@ -17,7 +18,7 @@ const NewsType = new GraphQLObjectType({
   });
 
 const RootQuery = new GraphQLObjectType({
-    name: 'News',
+    name: 'Root',
     fields: {
         launches: {
             type: new GraphQLList(NewsType),
