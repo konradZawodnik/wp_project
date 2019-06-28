@@ -3,11 +3,15 @@ Quick Start
 npm install
 cd client && npm install
 
+# Install nodemon 
+npm install -D nodemon
+
 # Run server & client (:3000 & :5000)
 npm run dev
 
 # Server only (:5000)
 npm run server
+
 
 # Client only (:3000)
 npm run client
