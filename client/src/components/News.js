@@ -3,7 +3,7 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
 const GET_WP_NEWS = gql`
-query{
+query ArticleQuery{
   articles(t: Gallery) {
       id
       url
@@ -11,6 +11,7 @@ query{
     }
   }
 `;
+
 
 const News = () => (
   <Fragment>
@@ -33,5 +34,5 @@ const News = () => (
       }}
     </Query>
   </Fragment>
-);
+ );
 export default News

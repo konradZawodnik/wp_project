@@ -3,20 +3,20 @@ const graphqlHTTP = require('express-graphql');
 const cors = require('cors');
 const schema = require('./schema');
 const path = require('path');
-
+const bodyParser = require('bodyParser');
 const app = express();
 
 // Allow cross-origin
 app.use(cors());
-
 app.use(
   '/graphql',
+  bodyParser.json(),
   graphqlHTTP({
     schema,
+    rootValue: root,
     graphiql: true
   })
 );
-
 app.use(express.static('public'));
 
 app.get('*', (req, res) => {
