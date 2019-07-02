@@ -1,4 +1,6 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, PureComponent } from 'react';
+import { Link } from 'react-router';
+import { Button, Label } from 'reactstrap';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -12,25 +14,30 @@ query GET_WP_NEWS{
   }
 `;
 
-const News = () => (
-  <Fragment>
-    <Query query={GET_WP_NEWS} fetchPolicy="network-only">
-      {({ loading, error, data }) => {
-        if (loading) return <h4>Loading...</h4>;
-        if (error) return `Error! ${error}`;
-
-        return (
-          <>
-            {data.articles.map(article => (
-              <>
-                <div key={article.id}>{article.title}</div>
-                <div key={article.id}>{article.url}</div>
-              </>
-            ))}
-          </>
-        );
-      }}
-    </Query>
-  </Fragment>
-);
-export default News
+const news = () => {
+  return (
+    <Fragment>
+      <Query query={GET_WP_NEWS} fetchPolicy="network-only">
+        {({ loading, error, data }) => {
+          if (loading) return <h4>Loading...</h4>;
+          if (error) return `Error! ${error}`;
+          return (
+            <>
+              {data.articles.map(article => (
+                <>
+                  <div key={article.id}>
+                    <Label>{article.title}</Label>
+                    <Button>
+                      <Link to={article.url} />
+                    </Button>
+                  </div>
+                </>
+              ))}
+            </>
+          );
+        }}
+      </Query>
+    </Fragment>
+  )
+};
+export default news
