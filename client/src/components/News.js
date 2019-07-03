@@ -37,6 +37,9 @@ const news = () => {
                     >{article.title}</Label>
                     <HocLinkButton
                       to={article.url}
+                      style={{
+                        "cursor":"pointer"
+                      }}
                       onClick={(event) => {
                         window.location.replace(article.url);
                         console.log(event);
