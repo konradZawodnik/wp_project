@@ -1,8 +1,12 @@
-import React, { Fragment, PureComponent } from 'react';
-import { Link } from 'react-router';
-import { Button, Label } from 'reactstrap';
+import React, { Fragment } from 'react';
+import LinkButton from './LinkButton';
+import { Route } from 'react-router-dom';
+import { Label } from 'reactstrap';
+import { withRouter } from 'react-router'
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+
+const HocLinkButton = withRouter(LinkButton)
 
 const GET_WP_NEWS = gql`
 query GET_WP_NEWS{
@@ -26,10 +30,24 @@ const news = () => {
               {data.articles.map(article => (
                 <>
                   <div key={article.id}>
-                    <Label>{article.title}</Label>
-                    <Button>
-                      <Link to={article.url} />
-                    </Button>
+                    <Label
+                      style={{
+                        "margin-right": "1vw",
+                      }}
+                    >{article.title}</Label>
+                    <HocLinkButton
+                      to={article.url}
+                      onClick={(event) => {
+                        console.log('custom event here!', event)
+                      }}
+                    >
+                      <Route
+                        render={() => {
+                          window.location.replace(article.url);
+                          return null;
+                        }}
+                      />
+                      Przejdź do strony</HocLinkButton>
                   </div>
                 </>
               ))}
@@ -39,5 +57,5 @@ const news = () => {
       </Query>
     </Fragment>
   )
-};
-export default news
+}
+export default news;
