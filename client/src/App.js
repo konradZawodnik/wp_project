@@ -3,9 +3,8 @@ import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import News from './components/News';
 import gql from 'graphql-tag';
-import './App.css';
-
 import ApolloClient from 'apollo-boost';
+import './App.css';
 
 const client = new ApolloClient({
   uri: 'https://mobileapi.wp.pl/v1/graphql'

@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import LinkButton from './LinkButton';
-import { Route } from 'react-router-dom';
 import { Label } from 'reactstrap';
 import { withRouter } from 'react-router'
 import { Query } from 'react-apollo';
@@ -34,11 +33,13 @@ const news = () => {
                       style={{
                         "margin-right": "1vw",
                       }}
-                    >{article.title}</Label>
+                    >
+                      {article.title}
+                    </Label>
                     <HocLinkButton
                       to={article.url}
                       style={{
-                        "cursor":"pointer"
+                        "cursor": "pointer"
                       }}
                       onClick={(event) => {
                         window.location.replace(article.url);
