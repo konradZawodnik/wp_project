@@ -38,15 +38,10 @@ const news = () => {
                     <HocLinkButton
                       to={article.url}
                       onClick={(event) => {
-                        console.log('custom event here!', event)
+                        window.location.replace(article.url);
+                        console.log(event);
                       }}
                     >
-                      <Route
-                        render={() => {
-                          window.location.replace(article.url);
-                          return null;
-                        }}
-                      />
                       Przejdź do strony</HocLinkButton>
                   </div>
                 </>
