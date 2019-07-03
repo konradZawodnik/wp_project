@@ -28,26 +28,28 @@ const news = () => {
             <>
               {data.articles.map(article => (
                 <>
-                  <div key={article.id}>
-                    <Label
-                      style={{
-                        "margin-right": "1vw",
-                      }}
-                    >
-                      {article.title}
-                    </Label>
-                    <HocLinkButton
-                      to={article.url}
-                      style={{
-                        "cursor": "pointer"
-                      }}
-                      onClick={(event) => {
-                        window.location.replace(article.url);
-                        console.log(event);
-                      }}
-                    >
-                      Przejdź do strony</HocLinkButton>
-                  </div>
+                  <ul>
+                    <li key={article.id}>
+                      <Label
+                        style={{
+                          "margin-right": "1vw",
+                        }}
+                      >
+                        {article.title}
+                      </Label>
+                      <HocLinkButton
+                        to={article.url}
+                        style={{
+                          "cursor": "pointer"
+                        }}
+                        onClick={(event) => {
+                          window.location.replace(article.url);
+                          console.log(event);
+                        }}
+                      >
+                        Przejdź do strony</HocLinkButton>
+                    </li>
+                  </ul>
                 </>
               ))}
             </>
