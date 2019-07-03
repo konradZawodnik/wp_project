@@ -26,6 +26,14 @@ const news = () => {
           if (error) return `Error! ${error}`;
           return (
             <>
+              <Label style={{
+                "display": "flex",
+                "justifyContent": "center",
+                "fontWeight": "bold",
+                "fontSize": "1.8em",
+              }}>
+                Ciekawe artykuły z WP
+                  </Label>
               {data.articles.map(article => (
                 <>
                   <ul>
@@ -33,6 +41,7 @@ const news = () => {
                       <Label
                         style={{
                           "margin-right": "1vw",
+                          "fontSize": "1em",
                         }}
                       >
                         {article.title}
