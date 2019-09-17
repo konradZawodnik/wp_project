@@ -1,11 +1,7 @@
 import React, { Fragment } from 'react';
-import LinkButton from './LinkButton';
 import { Label } from 'reactstrap';
-import { withRouter } from 'react-router'
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-
-const HocLinkButton = withRouter(LinkButton)
 
 const GET_WP_NEWS = gql`
 query GET_WP_NEWS{
@@ -44,19 +40,17 @@ const news = () => {
                           "fontSize": "1em",
                         }}
                       >
-                        {article.title}
+                        <a href={article.url}
+                          style={{
+                            "cursor": "pointer"
+                          }}
+                          onClick={(event) => {
+                            window.location.replace(article.url);
+                            console.log(event);
+                          }}>
+                          {article.title}
+                        </a>
                       </Label>
-                      <HocLinkButton
-                        to={article.url}
-                        style={{
-                          "cursor": "pointer"
-                        }}
-                        onClick={(event) => {
-                          window.location.replace(article.url);
-                          console.log(event);
-                        }}
-                      >
-                        Przejdź do strony</HocLinkButton>
                     </li>
                   </ul>
                 </>
