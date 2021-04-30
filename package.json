@@ -13,16 +13,16 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
-    "concurrently": "^4.0.1",
+    "concurrently": "^4.1.2",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
-    "graphql": "^14.0.2"
+    "graphql": "^14.7.0"
   },
   "devDependencies": {
     "apollo-fetch": "^0.7.0",
     "body-parser-graphql": "^1.1.0",
-    "nodemon": "^1.19.1",
+    "nodemon": "^1.19.4",
     "react-router-relative-links": "^0.1.0"
   }
 }
