@@ -1,0 +1,15 @@
+.ArticleLabel {
+    margin-right: 1vw;
+    font-size: 1em;
+}
+
+.HrefElement {
+    cursor: pointer;
+}
+
+.Label {
+    display: flex;
+    justify-content: center;
+    font-size: 1.8em;
+    font-weight: bold;
+}
